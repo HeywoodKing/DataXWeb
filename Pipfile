@@ -1,0 +1,13 @@
+[[source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "*"
+django-simpleui = "*"
+
+[requires]
+python_version = "3.7"
