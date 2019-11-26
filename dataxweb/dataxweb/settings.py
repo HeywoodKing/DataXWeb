@@ -171,7 +171,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads').replace('\\', '/')  # 设置静�
 # 首页图标
 # SIMPLEUI_HOME_ICON = 'fa fa-user'
 # 设置simpleui 点击首页图标跳转的地址
-SIMPLEUI_INDEX = 'http://www.dataxweb.cn/index'
+# SIMPLEUI_INDEX = 'http://www.dataxweb.cn/index'
+SIMPLEUI_INDEX = 'http://127.0.0.1:9000'
 # 自定义SIMPLEUI的Logo 修改LOGO
 SIMPLEUI_LOGO = STATIC_URL + 'images/login_logo.jpg'
 
