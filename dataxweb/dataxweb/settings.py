@@ -173,14 +173,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads').replace('\\', '/')  # 设置静�
 # 设置simpleui 点击首页图标跳转的地址
 SIMPLEUI_INDEX = 'http://www.dataxweb.cn/index'
 # 自定义SIMPLEUI的Logo 修改LOGO
-SIMPLEUI_LOGO = STATIC_URL + 'images/apple.png'
+SIMPLEUI_LOGO = STATIC_URL + 'images/login_logo.jpg'
 
 # 服务器信息
 SIMPLEUI_HOME_INFO = False
 # 快速操作
-# SIMPLEUI_HOME_QUICK = True
+SIMPLEUI_HOME_QUICK = True
 # 最近动作
-# SIMPLEUI_HOME_ACTION = True
+SIMPLEUI_HOME_ACTION = True
 # 统计分析信息
 SIMPLEUI_ANALYSIS = False
 
