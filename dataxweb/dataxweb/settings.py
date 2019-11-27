@@ -264,7 +264,7 @@ SIMPLEUI_CONFIG = {
                 {
                     'name': _('任务调度列表'),
                     'icon': 'fa fa-project-diagram',
-                    # 'url': 'home/chfproduct/'
+                    'url': 'backend/dataxjobscheduler/'
                 },
             ]
         },
