@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f402feb-7d7d-4c35-bde5-3800b1614496" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataxweb/backend/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataxweb/backend/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataxweb/backend/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataxweb/backend/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataxweb/backend/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataxweb/backend/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataxweb/dataxweb/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataxweb/dataxweb/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,17 +34,17 @@
           <entry key="Pipfile" value="3" />
           <entry key="gitignore" value="2" />
           <entry key="json" value="1" />
-          <entry key="md" value="2" />
-          <entry key="py" value="5" />
+          <entry key="md" value="4" />
+          <entry key="py" value="9" />
           <entry key="vue" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="1" />
-          <entry key="Markdown" value="2" />
+          <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="5" />
+          <entry key="Python" value="9" />
           <entry key="TOML" value="3" />
           <entry key="TypeScript JSX" value="3" />
         </counts>
@@ -49,17 +54,17 @@
           <entry key="Pipfile" value="81" />
           <entry key="gitignore" value="1" />
           <entry key="json" value="9" />
-          <entry key="md" value="284" />
-          <entry key="py" value="260" />
+          <entry key="md" value="397" />
+          <entry key="py" value="1414" />
           <entry key="vue" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="9" />
-          <entry key="Markdown" value="284" />
+          <entry key="Markdown" value="397" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="260" />
+          <entry key="Python" value="1414" />
           <entry key="TOML" value="81" />
           <entry key="TypeScript JSX" value="5" />
         </counts>
@@ -76,25 +81,64 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataxweb/dataxweb/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="174" column="40" lean-forward="true" selection-start-line="174" selection-start-column="40" selection-end-line="174" selection-end-column="40" />
+            <state relative-caret-position="341">
+              <caret line="158" column="25" selection-start-line="158" selection-start-column="25" selection-end-line="158" selection-end-column="25" />
               <folding>
                 <element signature="e#309#318#0" expanded="true" />
-                <element signature="e#6575#6578#0" />
+                <element signature="e#4991#9593#0" />
+                <element signature="e#5087#5309#0" />
+                <element signature="e#5309#6451#0" />
+                <element signature="e#7070#7876#0" />
+                <element signature="e#7194#7468#0" />
+                <element signature="e#7480#8219#0" />
+                <element signature="e#8229#8713#0" />
+                <element signature="e#8853#9115#0" />
+                <element signature="e#8996#9285#0" />
+                <element signature="e#9296#9585#0" />
                 <element signature="e#10578#14655#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataxweb/dataxweb/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+              <folding>
+                <element signature="e#632#664#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="361">
-                <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/dataxweb/backend/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="173" column="62" lean-forward="true" selection-start-line="173" selection-start-column="62" selection-end-line="173" selection-end-column="62" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataxweb/backend/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="164" column="88" selection-start-line="164" selection-start-column="88" selection-end-line="164" selection-end-column="88" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#241#660#0" />
+                <element signature="e#711#1125#0" />
+                <element signature="e#1180#1603#0" />
+                <element signature="e#1660#2088#0" />
+                <element signature="e#2147#2577#0" />
+                <element signature="e#2633#3055#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,8 +161,11 @@
         <option value="$PROJECT_DIR$/dataxweb/dataxweb/urls.py" />
         <option value="$PROJECT_DIR$/dataxweb/frontend/package.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/dataxweb/dataxweb/settings.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/dataxweb/backend/apps.py" />
+        <option value="$PROJECT_DIR$/dataxweb/dataxweb/settings.py" />
+        <option value="$PROJECT_DIR$/dataxweb/backend/admin.py" />
+        <option value="$PROJECT_DIR$/dataxweb/backend/models.py" />
       </list>
     </option>
   </component>
@@ -162,6 +209,23 @@
             <path>
               <item name="DataXWeb" type="b2602c69:ProjectViewProjectNode" />
               <item name="DataXWeb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataXWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataXWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="dataxweb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataXWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataXWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="dataxweb" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataXWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataXWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="dataxweb" type="462c0819:PsiDirectoryNode" />
+              <item name="dataxweb" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -207,7 +271,7 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20118026" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20708154" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -222,7 +286,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5005365" side_tool="true" weight="0.46585903" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49946353" weight="0.438326" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49946353" visible="true" weight="0.438326" />
       <window_info anchor="bottom" id="Python Console" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -259,12 +323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataxweb/backend/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataxweb/backend/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataxweb/frontend/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -279,42 +337,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataxweb/backend/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="285">
+            <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dataxweb/dataxweb/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+        <state relative-caret-position="437">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
           <folding>
             <element signature="e#632#664#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dataxweb/backend/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dataxweb/dataxweb/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="174" column="40" lean-forward="true" selection-start-line="174" selection-start-column="40" selection-end-line="174" selection-end-column="40" />
+        <state relative-caret-position="341">
+          <caret line="158" column="25" selection-start-line="158" selection-start-column="25" selection-end-line="158" selection-end-column="25" />
           <folding>
             <element signature="e#309#318#0" expanded="true" />
-            <element signature="e#6575#6578#0" />
+            <element signature="e#4991#9593#0" />
+            <element signature="e#5087#5309#0" />
+            <element signature="e#5309#6451#0" />
+            <element signature="e#7070#7876#0" />
+            <element signature="e#7194#7468#0" />
+            <element signature="e#7480#8219#0" />
+            <element signature="e#8229#8713#0" />
+            <element signature="e#8853#9115#0" />
+            <element signature="e#8996#9285#0" />
+            <element signature="e#9296#9585#0" />
             <element signature="e#10578#14655#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="361">
-            <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/dataxweb/backend/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="164" column="88" selection-start-line="164" selection-start-column="88" selection-end-line="164" selection-end-column="88" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#241#660#0" />
+            <element signature="e#711#1125#0" />
+            <element signature="e#1180#1603#0" />
+            <element signature="e#1660#2088#0" />
+            <element signature="e#2147#2577#0" />
+            <element signature="e#2633#3055#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataxweb/backend/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="173" column="62" lean-forward="true" selection-start-line="173" selection-start-column="62" selection-end-line="173" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

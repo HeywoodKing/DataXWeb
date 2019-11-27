@@ -151,7 +151,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # 会话cookie可以在用户浏览器�
 
 # 自定义用户model 否则会报：HINT: Add or change a related_name argument to the definition
 # for ‘User.user_permissions’ or ‘User.user_permissions’.
-# AUTH_USER_MODEL = 'backend.ChfUserProfile'
+AUTH_USER_MODEL = 'backend.DataXUserProfile'
 
 
 APPEND_SLASH = True
@@ -197,14 +197,15 @@ SIMPLEUI_CONFIG = {
     # 开启排序和过滤功能, 不填此字段为默认排序和全部显示, 空列表[] 为全部不显示.
     'menu_display': [
         _('系统'),
-        _('信息管理'),
-        _('产品管理'),
-        _('简介管理'),
-        _('留言管理'),
-        _('招聘管理'),
-        _('管理员管理'),
-        # _('中英文版管理'),
-        # _('权限认证')
+        _('客户端管理'),
+        _('任务调度'),
+        _('运行监控'),
+        _('实时日志'),
+        _('通知管理'),
+        _('用户管理'),
+        _('权限管理'),
+        _('数据库管理'),
+        _('统计分析'),
     ],
     'menus': [
         {
@@ -217,7 +218,7 @@ SIMPLEUI_CONFIG = {
                     # 'url': 'home/sysnav/'
                 },
                 {
-                    'name': _('网站配置'),
+                    'name': _('站点配置'),
                     'icon': 'fa fa-book-open',
                     # 'url': 'home/sysconfig/'
                 },
@@ -246,156 +247,126 @@ SIMPLEUI_CONFIG = {
             ]
         },
         # {
-        #     'name': _('信息管理'),
+        #     'name': _('客户端管理'),
         #     'icon': 'fas fa-sitemap',
         #     'models': [
         #         {
-        #             'name': _('首页模块'),
+        #             'name': _('客户端列表'),
         #             'icon': 'fa fa-info',
-        #             'url': 'home/chfindexplate/'
+        #             # 'url': 'home/chfindexplate/'
         #         },
-        #         {
-        #             'name': _('Banner图'),
-        #             'icon': 'fa fa-book-open',
-        #             'url': 'home/chfbanner/'
-        #         },
-        #         {
-        #             'name': _('用户浇水记录'),
-        #             'icon': 'fa fa-tint',
-        #             'url': 'home/chfuserwateringrecord/'
-        #         },
-        #         {
-        #             'name': _('用户抢券记录'),
-        #             'icon': 'fa fa-certificate',
-        #             'url': 'home/chfapplyrecord/'
-        #         },
-        #         {
-        #             'name': _('浇水水量余额'),
-        #             'icon': 'fa fa-water',
-        #             'url': 'home/chfwateringqty/'
-        #         },
-        #         {
-        #             'name': _('新闻资讯'),
-        #             'icon': 'fa fa-newspaper',
-        #             'url': 'home/chfnews/'
-        #         },
-        #         # {
-        #         #     'name': _('合作伙伴'),
-        #         #     'icon': 'fa fa-glass-cheers',
-        #         #     'url': 'home/chfpartner/'
-        #         # },
-        #         {
-        #             'name': _('合作共赢'),
-        #             'icon': 'fa fa-glass-cheers',
-        #             'url': 'home/chfcooperation/'
-        #         },
-        #         {
-        #             'name': _('申请表管理'),
-        #             'icon': 'fa fa-allergies',
-        #             'url': 'home/chftabletemplate/'
-        #         }
         #     ]
         # },
-        # {
-        #     'name': _('产品管理'),
-        #     'icon': 'fas fa-pepper-hot',
-        #     'models': [
-        #         {
-        #             'name': _('产品列表'),
-        #             'icon': 'fa fa-project-diagram',
-        #             'url': 'home/chfproduct/'
-        #         },
-        #         {
-        #             'name': _('产品类型'),
-        #             'icon': 'fa fa-tape',
-        #             'url': 'home/chfproducttype/'
-        #         }
-        #     ]
-        # },
-        # {
-        #     'name': _('简介管理'),
-        #     'icon': 'fas fa-pencil-alt',
-        #     'models': [
-        #         {
-        #             'name': _('品牌介绍'),
-        #             'icon': 'fa fa-beer',
-        #             'url': 'home/chfabout/'
-        #         },
-        #         {
-        #             'name': _('品牌图片资源'),
-        #             'icon': 'fa fa-images',
-        #             'url': 'home/chfaboutresource/'
-        #         },
-        #         {
-        #             'name': _('发展历程'),
-        #             'icon': 'fa fa-dharmachakra',
-        #             'url': 'home/chfcompanyhistory/'
-        #         },
-        #         {
-        #             'name': _('秦始皇故事'),
-        #             'icon': 'fa fa-dharmachakra',
-        #             'url': 'home/chfstory/'
-        #         }
-        #     ]
-        # },
-        # {
-        #     'name': _('留言管理'),
-        #     'icon': 'fas fa-comments',
-        #     'models': [
-        #         {
-        #             'name': _('留言列表'),
-        #             'icon': 'fa fa-comment-dots',
-        #             'url': ''
-        #         }
-        #     ]
-        # },
-        # {
-        #     'name': _('招聘管理'),
-        #     'icon': 'fas fa-users',
-        #     'models': [
-        #         {
-        #             'name': _('招聘列表'),
-        #             'icon': 'fa fa-user-friends',
-        #             'url': 'home/chfjobrecruit/'
-        #         }
-        #     ]
-        # },
-        # {
-        #     'name': _('管理员管理'),
-        #     'icon': 'fas fa-users-cog',
-        #     'models': [
-        #         {
-        #             'name': _('用户'),
-        #             'icon': 'fas fa-user',
-        #             'url': 'home/chfuserprofile/'
-        #         },
-        #         {
-        #             'app': 'auth',
-        #             'name': _('用户组'),
-        #             'icon': 'fa fa-user-tag',
-        #             'url': 'auth/group/'
-        #         }
-        #     ]
-        # },
-        # {
-        #     'name': '中英文版管理',
-        #     'icon': 'fas fa-compact-disc',
-        #     'models': []
-        # },
-        # {
-        #     'app': 'auth',
-        #     'name': '权限认证',
-        #     'icon': 'fas fa-user-shield',
-        #     'models': [{
-        #         'name': '用户',
-        #         'icon': 'fa fa-user',
-        #         'url': 'home/chfuserprofile/'
-        #     }]
-        # }
+        {
+            'name': _('任务调度'),
+            'icon': 'fas fa-pepper-hot',
+            'models': [
+                {
+                    'name': _('任务调度列表'),
+                    'icon': 'fa fa-project-diagram',
+                    # 'url': 'home/chfproduct/'
+                },
+            ]
+        },
+        {
+            'name': _('运行监控'),
+            'icon': 'fas fa-pencil-alt',
+            'url': 'logentry/'
+        },
+        {
+            'name': _('实时日志'),
+            'icon': 'fas fa-comments',
+            'models': [
+                {
+                    'name': _('实时日志列表'),
+                    'icon': 'fa fa-comment-dots',
+                    'url': ''
+                }
+            ]
+        },
+        {
+            'name': _('通知管理'),
+            'icon': 'fas fa-users-cog',
+            'models': [
+                {
+                    'name': _('报警设置'),
+                    'icon': 'fa fa-user-friends',
+                    'url': ''
+                },
+                {
+                    'name': _('邮件设置'),
+                    'icon': 'fa fa-user-friends',
+                    'url': ''
+                },
+                {
+                    'name': _('短信设置'),
+                    'icon': 'fa fa-user-friends',
+                    'url': ''
+                },
+                {
+                    'name': _('微信设置'),
+                    'icon': 'fa fa-user-friends',
+                    'url': ''
+                }
+            ]
+        },
+        {
+            'name': _('用户管理'),
+            'icon': 'fas fa-users',
+            'models': [
+                {
+                    'name': _('用户'),
+                    'icon': 'fas fa-user',
+                    # 'url': 'home/chfuserprofile/'
+                },
+                {
+                    'app': 'auth',
+                    'name': _('用户组'),
+                    'icon': 'fa fa-user-tag',
+                    'url': 'auth/group/'
+                }
+            ]
+        },
+        {
+            'app': 'auth',
+            'name': '权限管理',
+            'icon': 'fas fa-user-shield',
+            'models': [{
+                'name': '用户',
+                'icon': 'fa fa-user',
+                'url': 'home/chfuserprofile/'
+            }]
+        },
+        {
+            'name': '数据库管理',
+            'icon': 'fas fa-compact-disc',
+            'models': [
+                {
+                    'name': _('数据库列表'),
+                    'icon': 'fa fa-book-open',
+                    # 'url': 'home/sysnav/'
+                },
+            ]
+        },
+        {
+            'name': '统计分析',
+            'icon': 'fas fa-compact-disc',
+            'url': ''
+        },
     ]
 }
 
 
+# DataX 任务脚本存放目录
+DATAX_JOB_JSON_FILE_PATH = r'D:\Flack\Project\Github\DataXPython3\datax\bin\json'
+
+# DataX 运行文件目录
+DATAX_PY_PATH = r'D:\Flack\Project\Github\DataXPython3\datax\bin\datax.py'
+
+# 日志级别
+LOG_LEVEL = logging.DEBUG
+
+# 日志目录
 LOG_PATH = os.path.join(BASE_DIR, 'log')
 if not os.path.join(LOG_PATH):
     os.mkdir(LOG_PATH)
