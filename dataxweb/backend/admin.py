@@ -4,12 +4,22 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.admin import SimpleListFilter
 from django.contrib.admin.models import LogEntry
 from django.utils.translation import ugettext_lazy as _
+from django.http import HttpResponse, HttpResponseRedirect
+from django.core import serializers
+from django.contrib.contenttypes.models import ContentType
 
 # Register your models here.
 admin.site.index_title = _('欢迎使用DataX管理系统')
 admin.site.site_title = _('DataX管理系统')
 admin.site.site_header = _('DataX管理系统')
 
+
+# 编写可用于整个admin站点的action
+# admin.site.add_action(export_selected_objects)
+
+# 禁用全站级别的 acitons
+# 禁用内置的删除方法
+# admin.site.disable_action('delete_selected')
 
 # 是否启用过滤
 class IsEnableFilter(SimpleListFilter):
@@ -324,7 +334,7 @@ class DataXTaskAdmin(admin.ModelAdmin):
         super(DataXTaskAdmin, self).delete_model(request, obj)
 
     actions = ['publish']
-    
+
     # 定制Action行为具体方法
     def publish(self, request, queryset):
         print(self, request, queryset)
@@ -335,6 +345,19 @@ class DataXTaskAdmin(admin.ModelAdmin):
         self.message_user(request, '调度成功')
 
     publish.short_description = "调度"
+
+    def export_as_json(self, request, queryset):
+        response = HttpResponse(content_type="application/json")
+        serializers.serialize("json", queryset, stream=response)
+        return response
+
+    def export_selected_objects(modeladmin, request, queryset):
+        # 获得被打钩的checkbox对应的对象
+        selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
+        # 获取对应的模型
+        ct = ContentType.objects.get_for_model(queryset.model)
+        # 构造访问的url，使用GET方法，跳转到相应的页面
+        return HttpResponseRedirect("/export/?ct=%s&ids=%s" % (ct.pk, ",".join(selected)))
 
 
 @admin.register(models.DataXTaskStatus)

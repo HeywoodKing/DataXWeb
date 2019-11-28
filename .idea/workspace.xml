@@ -79,7 +79,7 @@
           <entry key="gitignore" value="1" />
           <entry key="json" value="9" />
           <entry key="md" value="443" />
-          <entry key="py" value="2909" />
+          <entry key="py" value="2966" />
           <entry key="vue" value="5" />
         </counts>
       </usages-collector>
@@ -88,7 +88,7 @@
           <entry key="JSON" value="9" />
           <entry key="Markdown" value="443" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="2909" />
+          <entry key="Python" value="2966" />
           <entry key="TOML" value="81" />
           <entry key="TypeScript JSX" value="5" />
         </counts>
@@ -124,8 +124,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dataxweb/backend/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="326" column="4" selection-start-line="326" selection-start-column="4" selection-end-line="326" selection-end-column="4" />
+            <state relative-caret-position="399">
+              <caret line="21" column="46" lean-forward="true" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#471#890#0" />
@@ -136,9 +136,10 @@
                 <element signature="e#2863#3285#0" />
                 <element signature="e#4100#4134#0" />
                 <element signature="e#6626#6641#0" />
-                <marker date="1574949369262" expanded="true" signature="10198:10199" ph="..." />
-                <marker date="1574949369262" expanded="true" signature="10741:10750" ph="..." />
-                <marker date="1574949369262" expanded="true" signature="11278:11849" ph="..." />
+                <element signature="e#9262#9827#0" />
+                <marker date="1574949878189" expanded="true" signature="10504:10505" ph="..." />
+                <marker date="1574949878189" expanded="true" signature="11047:11056" ph="..." />
+                <marker date="1574949878189" expanded="true" signature="12155:12726" ph="..." />
               </folding>
             </state>
           </provider>
@@ -293,7 +294,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5005365" side_tool="true" weight="0.46585903" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49946353" visible="true" weight="0.41629955" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49946353" weight="0.41629955" />
       <window_info anchor="bottom" id="Python Console" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -419,8 +420,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dataxweb/backend/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="326" column="4" selection-start-line="326" selection-start-column="4" selection-end-line="326" selection-end-column="4" />
+        <state relative-caret-position="399">
+          <caret line="21" column="46" lean-forward="true" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#471#890#0" />
@@ -431,9 +432,10 @@
             <element signature="e#2863#3285#0" />
             <element signature="e#4100#4134#0" />
             <element signature="e#6626#6641#0" />
-            <marker date="1574949369262" expanded="true" signature="10198:10199" ph="..." />
-            <marker date="1574949369262" expanded="true" signature="10741:10750" ph="..." />
-            <marker date="1574949369262" expanded="true" signature="11278:11849" ph="..." />
+            <element signature="e#9262#9827#0" />
+            <marker date="1574949878189" expanded="true" signature="10504:10505" ph="..." />
+            <marker date="1574949878189" expanded="true" signature="11047:11056" ph="..." />
+            <marker date="1574949878189" expanded="true" signature="12155:12726" ph="..." />
           </folding>
         </state>
       </provider>
