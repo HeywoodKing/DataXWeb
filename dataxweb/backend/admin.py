@@ -254,8 +254,12 @@ class DataXTaskAdmin(admin.ModelAdmin):
     # list_max_show_all = 200
     # paginator = Paginator
     preserve_filters = True
+    # Action选项都是在页面上方显示
     # actions_on_top = True
-    # actions_on_bottom = True
+    # Action选项都是在页面下方显示
+    # actions_on_bottom = False
+    # 是否显示选择个数
+    # actions_selection_counter = True
     save_on_top = True
     # save_as = False
     # save_as_continue = False
@@ -287,9 +291,16 @@ class DataXTaskAdmin(admin.ModelAdmin):
             ],
         }),
     )
+    # date_hierarchy = 'create_time'  # 详细时间分层筛选
+
     # 只读字段
     # readonly_fields = (, )
     exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
+
+    # 排序
+    # ordering = ('-id',)
+    # def get_ordering(self, request):
+    #     return ['-id', ]
 
     def save_model(self, request, obj, form, change):
         print('*' * 100)
@@ -311,6 +322,19 @@ class DataXTaskAdmin(admin.ModelAdmin):
     def delete_model(self, request, obj):
         # 停止任务
         super(DataXTaskAdmin, self).delete_model(request, obj)
+
+    actions = ['publish']
+    
+    # 定制Action行为具体方法
+    def publish(self, request, queryset):
+        print(self, request, queryset)
+        print(request.POST.getlist('_selected_action'))
+        print(request, queryset)
+        # queryset.update(status='published')
+        # 操作完成后的提示信息
+        self.message_user(request, '调度成功')
+
+    publish.short_description = "调度"
 
 
 @admin.register(models.DataXTaskStatus)
