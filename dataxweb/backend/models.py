@@ -158,7 +158,13 @@ class DataXJobScheduler(BaseModel):
 
 # 作业任务
 class DataXTask(BaseModel):
-    name = models.CharField(_('任务名称'), max_length=256, )
+    scheduler = models.OneToOneField(
+        DataXJobScheduler, null=False,
+        related_name='Scheduler',  # 反向查询用(就不_set了：d1.DataXTask.all() -》d1.Scheduler.all())
+        on_delete=models.CASCADE,  # 外键,自动关联表的主键 级联删除
+        to_field='id', verbose_name=_('作业任务')
+    )
+    name = models.CharField(_('任务名称'), max_length=256, help_text='此名称用于保存为json模板名称')
     from_dbtype = models.CharField(_('来源库类型'), max_length=50, )
     from_hostname = models.CharField(_('来源IP'), max_length=16, )
     from_port = models.SmallIntegerField(_('来源端口'), default=3306, )
@@ -166,9 +172,9 @@ class DataXTask(BaseModel):
     from_password = models.CharField(_('来源密码'), max_length=50, )
     from_db_name = models.CharField(_('来源库名'), max_length=80, )
     from_table_name = models.CharField(_('来源表名'), max_length=80, )
-    from_columns = models.CharField(_('来源列'), default='*', max_length=1000, )
-    from_where = models.CharField(_('来源条件'), default='', max_length=1000, )
-    from_character = models.CharField(_('来源编码'), default='utf8', max_length=10, )
+    from_columns = models.CharField(_('来源列'), default='*', max_length=1000, null=True, blank=True, )
+    from_where = models.CharField(_('来源条件'), default='', max_length=1000, null=True, blank=True, )
+    from_character = models.CharField(_('来源编码'), default='utf8', max_length=10, null=True, blank=True, )
 
     to_dbtype = models.CharField(_('目标库类型'), max_length=50, )
     to_hostname = models.CharField(_('目标IP'), max_length=16, )
@@ -177,16 +183,16 @@ class DataXTask(BaseModel):
     to_password = models.CharField(_('目标密码'), max_length=50, )
     to_db_name = models.CharField(_('目标库名'), max_length=80, )
     to_table_name = models.CharField(_('目标表名'), max_length=80, )
-    to_columns = models.CharField(_('目标列'), default='*', max_length=1000, )
-    to_pre_sql = models.CharField(_('前置条件'), default='', max_length=1000, )
-    to_post_sql = models.CharField(_('后置条件'), default='', max_length=1000, )
-    to_character = models.CharField(_('目标编码'), default='utf8', max_length=10, )
-    to_session = models.CharField(_('目标session'), default='', max_length=256)
+    to_columns = models.CharField(_('目标列'), default='*', max_length=1000, null=True, blank=True, )
+    to_pre_sql = models.CharField(_('前置条件'), default='', max_length=1000, null=True, blank=True, )
+    to_post_sql = models.CharField(_('后置条件'), default='', max_length=1000, null=True, blank=True, )
+    to_character = models.CharField(_('目标编码'), default='utf8', max_length=10, null=True, blank=True, )
+    to_session = models.CharField(_('目标session'), default='', max_length=256, null=True, blank=True, )
     to_write_mode = models.CharField(_('目标写入模式'), default='insert', max_length=15)
 
-    task_speed_channel = models.SmallIntegerField(_('速度'), default=5)
-    task_error_limit_record = models.SmallIntegerField(_('错误记录条数'), default=5)
-    task_error_limit_percentage = models.FloatField(_('错误记录百分比'), default=0.02)
+    task_speed_channel = models.SmallIntegerField(_('速度'), default=5, null=True, blank=True, )
+    task_error_limit_record = models.SmallIntegerField(_('错误记录条数'), default=5, null=True, blank=True, )
+    task_error_limit_percentage = models.FloatField(_('错误记录百分比'), default=0.02, null=True, blank=True, )
 
     sort = models.IntegerField(_('排序'), default=0)
     is_enable = models.BooleanField(_('是否启用'), default=True)
@@ -208,5 +214,42 @@ class DataXTask(BaseModel):
     #
     # long_profile.allow_tags = True
     # long_profile.short_description = _('')
+
+
+# 作业任务状态
+class DataXTaskStatus(BaseModel):
+    """
+    """
+    task = models.ManyToManyField(
+        DataXTask, null=True,
+        related_name='Task',  # 反向查询用(就不_set了：d1.DataXTaskStatus_set.all() -》d1.Task.all())
+        # through=''
+        verbose_name=_('任务状态')
+    )
+    name = models.CharField(_('任务名称'), max_length=200)
+    state = models.PositiveSmallIntegerField(
+        _('任务状态'), default=0,
+        choices=(
+            (0, _('未运行')),
+            (1, _('运行中')),
+            (2, _('已完成')),
+            (3, _('终止')),
+        )
+    )
+    start_time = models.DateTimeField(_('开始时间'), default=timezone.now, )
+    end_time = models.DateTimeField(_('结束时间'), default=timezone.now, )
+    duration = models.IntegerField(_('运行时长'), default=0)
+    # image_url = models.ImageField(_('图片'), null=True, blank=True, upload_to='company/%Y/%m')
+    # about = models.ForeignKey(to='ChfAbout', null=True, blank=True, related_name='about_resource',
+    #                           related_query_name='about', on_delete=models.CASCADE, verbose_name=_('品牌介绍'))
+
+    class Meta:
+        db_table = 'dx_taskstatus'
+        ordering = ['-create_time']
+        verbose_name = _('任务状态')
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
 
 

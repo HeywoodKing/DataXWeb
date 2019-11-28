@@ -229,13 +229,13 @@ class DataXJobSchedulerAdmin(admin.ModelAdmin):
     # ordering = ('-create_time',)
     # prepopulated_fields = {'slug': ('name',)}
 
-    class Media:
-        js = (
-            # '/static/plugins/kindeditor-4.1.10/kindeditor-all-min.js',
-            '/static/plugins/kindeditor-4.1.10/kindeditor.js',
-            '/static/plugins/kindeditor-4.1.10/lang/zh_CN.js',
-            '/static/plugins/kindeditor-4.1.10/config.js',
-        )
+    # class Media:
+    #     js = (
+    #         # '/static/plugins/kindeditor-4.1.10/kindeditor-all-min.js',
+    #         '/static/plugins/kindeditor-4.1.10/kindeditor.js',
+    #         '/static/plugins/kindeditor-4.1.10/lang/zh_CN.js',
+    #         '/static/plugins/kindeditor-4.1.10/config.js',
+    #     )
 
 
 # 作业任务
@@ -244,45 +244,92 @@ class DataXTaskAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'from_dbtype', 'from_hostname', 'from_port', 'from_username', 'from_password',
                     'from_db_name', 'from_table_name', 'from_columns', 'from_where', 'from_character',
                     'to_dbtype', 'to_hostname', 'to_port', 'to_username', 'to_password',
-                    'to_db_name', 'to_table_name', 'to_columns', 'to_pre_sql', 'to_post_sql', 'from_character',
+                    'to_db_name', 'to_table_name', 'to_columns', 'to_pre_sql', 'to_post_sql', 'to_character',
                     'to_session', 'to_write_mode', 'task_speed_channel', 'task_error_limit_record',
                     'task_error_limit_percentage', 'sort', 'is_enable')
     list_display_links = ('id', 'name',)
     list_editable = ('is_enable',)
     list_filter = (IsEnableFilter, )
     list_per_page = 10
-    search_fields = ('name',)
+    # list_max_show_all = 200
+    # paginator = Paginator
+    preserve_filters = True
+    # actions_on_top = True
+    # actions_on_bottom = True
+    save_on_top = True
+    # save_as = False
+    # save_as_continue = False
+    search_fields = (
+        'name', 'from_dbtype', 'from_hostname', 'from_port', 'from_username',
+        'from_db_name', 'from_table_name', 'from_columns', 'from_where',
+        'to_dbtype', 'to_hostname', 'to_port', 'to_username',
+        'to_db_name', 'to_table_name', 'to_columns', 'to_pre_sql', 'to_post_sql',
+    )
+    fieldsets = (
+        ('来源', {
+            'fields': [
+                'from_dbtype', 'from_hostname', 'from_port', 'from_username', 'from_password',
+                'from_db_name', 'from_table_name', 'from_columns', 'from_where', 'from_character',
+            ],
+        }),
+        ('目标', {
+            # 'classes': ('collapse', 'wide', 'extrapretty'),
+            'fields': [
+                'to_dbtype', 'to_hostname', 'to_port', 'to_username', 'to_password',
+                'to_db_name', 'to_table_name', 'to_columns', 'to_pre_sql', 'to_post_sql', 'to_character',
+                'to_session', 'to_write_mode',
+            ],
+        }),
+        ('其他', {
+            'fields': [
+                'task_speed_channel', 'task_error_limit_record',
+                'task_error_limit_percentage', 'sort', 'is_enable'
+            ],
+        }),
+    )
+    # 只读字段
+    # readonly_fields = (, )
     exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
 
-    # fieldsets = (
-    #     ('基本设置', {
-    #         'fields': ('name', 'brief', 'product_type', )
-    #     }),
-    #     ('高级设置', {
-    #         'classes': ('collapse', ),
-    #         'fields': ('read_count', 'content', 'cover_image_url', 'sort', 'is_recommand')
-    #     }),
-    # )
+    def save_model(self, request, obj, form, change):
+        print('*' * 100)
+        print(obj.name, obj.from_dbtype, obj.from_hostname, obj.from_port, obj.from_username, obj.from_password)
+        print(obj.name, obj.to_dbtype, obj.to_hostname, obj.to_port, obj.to_username, obj.to_password)
+        print('*' * 100)
 
-    # list_max_show_all =
-    # list_per_page =
-    # list_select_related =
-    # change_list_template =
-    # sortable_by =
-    # '''每页显示条目数'''
-    # list_per_page = 10
-    # 按日期筛选
-    # date_hierarchy = 'create_time'
-    # 按创建日期排序
-    # ordering = ('-create_time',)
-    # prepopulated_fields = {'slug': ('name',)}
+        if change:
+            pass
+            # 修改
+            # 修改对应的json模板文件
+        else:
+            pass
+            # 新增
+            # 新增对应的json模板文件
 
-    class Media:
-        js = (
-            # '/static/plugins/kindeditor-4.1.10/kindeditor-all-min.js',
-            '/static/plugins/kindeditor-4.1.10/kindeditor.js',
-            '/static/plugins/kindeditor-4.1.10/lang/zh_CN.js',
-            '/static/plugins/kindeditor-4.1.10/config.js',
-        )
+        super(DataXTaskAdmin, self).save_model(request, obj, form, change)
+
+    def delete_model(self, request, obj):
+        # 停止任务
+        super(DataXTaskAdmin, self).delete_model(request, obj)
 
 
+@admin.register(models.DataXTaskStatus)
+class DataXTaskStatusAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'state', 'start_time', 'end_time', 'duration')
+    list_display_links = ('id', 'name')
+    # list_filter = ()
+    list_per_page = 10
+    search_fields = ('task', 'name', )
+    exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username')
+
+    # 屏蔽增加功能按钮
+    def has_add_permission(self, request):
+        return False
+
+    # 屏蔽删除功能按钮
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    # 屏蔽修改功能按钮
+    def has_change_permission(self, request, obj=None):
+        return False

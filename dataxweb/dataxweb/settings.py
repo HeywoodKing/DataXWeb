@@ -198,7 +198,7 @@ SIMPLEUI_CONFIG = {
     'menu_display': [
         _('系统'),
         _('客户端管理'),
-        _('任务调度'),
+        _('作业调度'),
         _('运行监控'),
         _('实时日志'),
         _('通知管理'),
@@ -258,20 +258,25 @@ SIMPLEUI_CONFIG = {
         #     ]
         # },
         {
-            'name': _('任务调度'),
+            'name': _('作业调度'),
             'icon': 'fas fa-pepper-hot',
             'models': [
                 {
-                    'name': _('任务调度列表'),
+                    'name': _('作业调度列表'),
                     'icon': 'fa fa-project-diagram',
                     'url': 'backend/dataxjobscheduler/'
+                },
+                {
+                    'name': _('作业任务列表'),
+                    'icon': 'fa fa-project-diagram',
+                    'url': 'backend/dataxtask/'
                 },
             ]
         },
         {
             'name': _('运行监控'),
             'icon': 'fas fa-pencil-alt',
-            'url': 'logentry/'
+            'url': 'backend/dataxtaskstatus/'
         },
         {
             'name': _('实时日志'),
@@ -280,7 +285,7 @@ SIMPLEUI_CONFIG = {
                 {
                     'name': _('实时日志列表'),
                     'icon': 'fa fa-comment-dots',
-                    'url': ''
+                    'url': 'admin/logentry/'
                 }
             ]
         },
