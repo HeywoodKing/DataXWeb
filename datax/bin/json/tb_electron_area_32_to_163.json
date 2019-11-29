@@ -1,0 +1,67 @@
+{
+    "job": {
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "column": [
+                            "id",
+                            "zh_name",
+                            "en_name",
+                            "state",
+                            "create_at",
+                            "create_uid",
+                            "update_at",
+                            "update_uid",
+                            "sort"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": ["jdbc:mysql://121.201.107.32:3306/db_electron_property?characterEncoding=utf8"],
+                                "table": ["tb_electron_area"]
+                            }
+                        ],
+                        "password": "Magic_ro.mofang123",
+                        "username": "magic_ro",
+                        "where": ""
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "column": [
+                            "id",
+                            "zh_name",
+                            "en_name",
+                            "state",
+                            "create_at",
+                            "create_uid",
+                            "update_at",
+                            "update_uid",
+                            "sort"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://192.168.1.163:3306/db_electron_property_online?characterEncoding=utf8",
+                                "table": ["tb_electron_area"]
+                            }
+                        ],
+                        "password": "mofang123",
+                        "preSql": [
+                            "truncate table tb_electron_area"
+                        ],
+                        "session": [],
+                        "username": "root",
+                        "writeMode": "insert"
+                    }
+                }
+            }
+        ],
+        "setting": {
+            "speed": {
+                "channel": "5"
+            }
+        }
+    }
+}

@@ -124,17 +124,29 @@ class DataXJobScheduler(BaseModel):
     """
     """
     name = models.CharField(_('作业名称'), max_length=200)
-    # type_code = models.PositiveSmallIntegerField(
-    #     _('图片业务类型'), default=0,
-    #     choices=(
-    #         (1, _('企业文化')),
-    #         (2, _('品牌荣誉')),
-    #         (3, _('企业资质')),
-    #         (4, _('团队风采')),
-    #         (5, _('品牌故事')),
-    #         (6, _('组织架构'))
-    #     )
-    # )
+    hostname = models.CharField(_('作业机器名称'), max_length=100, default='', null=True, blank=True)
+    ip = models.CharField(_('作业机器ip'), max_length=100, default='127.0.0.1', )
+    port = models.PositiveSmallIntegerField(_('作业机器端口'), default=9999, )
+    deploy_state = models.PositiveSmallIntegerField(
+        _('作业部署状态'), default=0,
+        choices=(
+            (0, _('未部署')),
+            (1, _('已部署')),
+        )
+    )
+    state = models.PositiveSmallIntegerField(
+        _('作业运行状态'), default=0,
+        choices=(
+            (0, _('未运行')),
+            (1, _('运行中')),
+            (2, _('结束')),
+            (3, _('异常终止')),
+        )
+    )
+    start_time = models.DateTimeField(_('作业开始时间'), default='', null=True, blank=True, )
+    end_time = models.DateTimeField(_('作业结束时间'), default='', null=True, blank=True, )
+    duration = models.IntegerField(_('运行时长'), default=0)
+
     # image_url = models.ImageField(_('图片'), null=True, blank=True, upload_to='company/%Y/%m')
     # about = models.ForeignKey(to='ChfAbout', null=True, blank=True, related_name='about_resource',
     #                           related_query_name='about', on_delete=models.CASCADE, verbose_name=_('品牌介绍'))
@@ -236,12 +248,9 @@ class DataXTaskStatus(BaseModel):
             (3, _('终止')),
         )
     )
-    start_time = models.DateTimeField(_('开始时间'), default=timezone.now, )
-    end_time = models.DateTimeField(_('结束时间'), default=timezone.now, )
+    start_time = models.DateTimeField(_('开始时间'), default='', null=True, blank=True, )
+    end_time = models.DateTimeField(_('结束时间'), default='', null=True, blank=True, )
     duration = models.IntegerField(_('运行时长'), default=0)
-    # image_url = models.ImageField(_('图片'), null=True, blank=True, upload_to='company/%Y/%m')
-    # about = models.ForeignKey(to='ChfAbout', null=True, blank=True, related_name='about_resource',
-    #                           related_query_name='about', on_delete=models.CASCADE, verbose_name=_('品牌介绍'))
 
     class Meta:
         db_table = 'dx_taskstatus'

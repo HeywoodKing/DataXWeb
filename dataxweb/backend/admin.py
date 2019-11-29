@@ -208,23 +208,14 @@ class LogEntryAdmin(admin.ModelAdmin):
 # 作业调度
 @admin.register(models.DataXJobScheduler)
 class DataXJobSchedulerAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'sort', 'is_enable')
-    list_display_links = ('id', 'name',)
-    list_editable = ('is_enable',)
+    list_display = ('id', 'name', 'hostname', 'ip', 'port', 'deploy_state', 'state', 'start_time',
+                    'end_time', 'duration', 'sort', 'is_enable')
+    list_display_links = ('id', 'name', )
+    list_editable = ('is_enable', 'hostname', 'ip', 'port', )
     list_filter = (IsEnableFilter, )
     list_per_page = 10
-    search_fields = ('name',)
+    search_fields = ('name', 'hostname', 'ip', 'port', )
     exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
-
-    # fieldsets = (
-    #     ('基本设置', {
-    #         'fields': ('name', 'brief', 'product_type', )
-    #     }),
-    #     ('高级设置', {
-    #         'classes': ('collapse', ),
-    #         'fields': ('read_count', 'content', 'cover_image_url', 'sort', 'is_recommand')
-    #     }),
-    # )
 
     # list_max_show_all =
     # list_per_page =
@@ -246,6 +237,52 @@ class DataXJobSchedulerAdmin(admin.ModelAdmin):
     #         '/static/plugins/kindeditor-4.1.10/lang/zh_CN.js',
     #         '/static/plugins/kindeditor-4.1.10/config.js',
     #     )
+
+    actions = ['view_job_json', 'view_job_task', 'deploy_job', 'start_job', 'stop_job', 'view_job_log', ]
+
+    def view_job_json(self, request, queryset):
+        pass
+
+    view_job_json.short_description = '查看作业json'
+
+    def deploy_job(self, request, queryset):
+        # 操作完成后的提示信息
+        self.message_user(request, '作业部署成功！')
+
+        # response = HttpResponse(content_type="application/json")
+        # serializers.serialize("json", queryset, stream=response)
+        # return response
+
+        # 获得被打钩的checkbox对应的对象
+        selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
+        # 获取对应的模型
+        ct = ContentType.objects.get_for_model(queryset.model)
+        # 构造访问的url，使用GET方法，跳转到相应的页面
+        return HttpResponseRedirect("/export/?ct=%s&ids=%s" % (ct.pk, ",".join(selected)))
+
+    deploy_job.short_description = '部署作业'
+
+    def view_job_task(self, request, queryset):
+        pass
+
+    view_job_task.short_description = '查看作业任务'
+
+    def start_job(self, request, queryset):
+        # 操作完成后的提示信息
+        self.message_user(request, '作业已启动！')
+
+    start_job.short_description = '启动作业'
+
+    def stop_job(self, request, queryset):
+        # 操作完成后的提示信息
+        self.message_user(request, '作业已停止！')
+
+    stop_job.short_description = '停止作业'
+
+    def view_job_log(self, request, queryset):
+        pass
+
+    view_job_log.short_description = '查看作业日志'
 
 
 # 作业任务
@@ -281,6 +318,7 @@ class DataXTaskAdmin(admin.ModelAdmin):
     )
     fieldsets = (
         ('来源', {
+            # 'classes': ('collapse', ),
             'fields': [
                 'from_dbtype', 'from_hostname', 'from_port', 'from_username', 'from_password',
                 'from_db_name', 'from_table_name', 'from_columns', 'from_where', 'from_character',
@@ -305,8 +343,25 @@ class DataXTaskAdmin(admin.ModelAdmin):
 
     # 只读字段
     # readonly_fields = (, )
-    exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
 
+    # # 添加数据模板页
+    # add_form_template = None
+    # # 修改数据的模板页
+    # change_form_template = None
+    # # 修改多条数据的模板页
+    # change_list_template = None
+    # # 删除确认信息模板页
+    # delete_confirmation_template = None
+    # # 删除关联数据的确认页
+    # delete_selected_confirmation_template = None
+    # # 修改历史的模板页
+    # object_history_template = None
+
+    # 弹出框模板页
+    popup_response_template = None
+
+    exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
+    actions = ['view_task_json', 'start_task', 'stop_task', 'view_task_log', 'export_as_json', ]
     # 排序
     # ordering = ('-id',)
     # def get_ordering(self, request):
@@ -333,31 +388,56 @@ class DataXTaskAdmin(admin.ModelAdmin):
         # 停止任务
         super(DataXTaskAdmin, self).delete_model(request, obj)
 
-    actions = ['publish']
+    def view_task_json(self, request, queryset):
+        pass
+
+    view_task_json.short_description = '查看任务json'
 
     # 定制Action行为具体方法
-    def publish(self, request, queryset):
+    def start_task(self, request, queryset):
         print(self, request, queryset)
         print(request.POST.getlist('_selected_action'))
         print(request, queryset)
         # queryset.update(status='published')
         # 操作完成后的提示信息
-        self.message_user(request, '调度成功')
+        self.message_user(request, '任务已启动！')
 
-    publish.short_description = "调度"
+    start_task.short_description = "启动任务"
+
+    def stop_task(self, request, queryset):
+        print(self, request, queryset)
+        print(request.POST.getlist('_selected_action'))
+        print(request, queryset)
+        # queryset.update(status='published')
+        # 操作完成后的提示信息
+        self.message_user(request, '任务已停止！')
+
+    stop_task.short_description = "停止任务"
+
+    def view_task_log(self, request, queryset):
+        print(self, request, queryset)
+        print(request.POST.getlist('_selected_action'))
+        print(request, queryset)
+        # queryset.update(status='published')
+        # 操作完成后的提示信息
+        # self.message_user(request, '任务已停止！')
+
+    view_task_log.short_description = "查看任务日志"
 
     def export_as_json(self, request, queryset):
         response = HttpResponse(content_type="application/json")
         serializers.serialize("json", queryset, stream=response)
         return response
 
-    def export_selected_objects(modeladmin, request, queryset):
-        # 获得被打钩的checkbox对应的对象
-        selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
-        # 获取对应的模型
-        ct = ContentType.objects.get_for_model(queryset.model)
-        # 构造访问的url，使用GET方法，跳转到相应的页面
-        return HttpResponseRedirect("/export/?ct=%s&ids=%s" % (ct.pk, ",".join(selected)))
+    export_as_json.short_description = '导出json'
+
+    # def export_selected_objects(self, request, queryset):
+    #     # 获得被打钩的checkbox对应的对象
+    #     selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
+    #     # 获取对应的模型
+    #     ct = ContentType.objects.get_for_model(queryset.model)
+    #     # 构造访问的url，使用GET方法，跳转到相应的页面
+    #     return HttpResponseRedirect("/export/?ct=%s&ids=%s" % (ct.pk, ",".join(selected)))
 
 
 @admin.register(models.DataXTaskStatus)

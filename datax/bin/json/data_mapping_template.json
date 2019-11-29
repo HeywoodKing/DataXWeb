@@ -1,0 +1,47 @@
+{
+    "setting": {},
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 2
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "txtfilereader",
+                    "parameter": {
+                        "path": ["E:\\test.csv"],
+                        "encoding": "UTF-8",
+                        "column": [
+                            {
+                                "index": 0,
+                                "type": "long"
+                            },
+                            {
+                                "index": 1,
+                                "type": "long"
+                            },
+                            {
+                                "index": 2,
+                                "type": "long"
+                            }
+                        ],
+                        "fieldDelimiter": ",",
+						"skipHeader": "False"
+                    }
+                },
+                "writer": {
+                    "name": "txtfilewriter",
+                    "parameter": {
+                        "path": "E:\\test",
+                        "fileName": "test",
+                        "writeMode": "truncate",
+                        "format": "yyyy-MM-dd",
+						"header":['id', 'name', 'age']
+                    }
+                }
+            }
+        ]
+    }
+}

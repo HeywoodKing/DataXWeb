@@ -1,0 +1,45 @@
+{
+    "job": {
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "column": ["id","name","data","tags"],
+                        "connection": [
+                            {
+                                "jdbcUrl": ["jdbc:mysql://192.168.1.106:3306/fake?characterEncoding=utf8"],
+                                "table": ["fk_message"]
+                            }
+                        ],
+                        "password": "mofang123",
+                        "username": "root",
+                        "where": ""
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "column": ["id","name","data","tags"],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://192.168.1.163:3306/db_test?characterEncoding=utf8",
+                                "table": ["fk_message"]
+                            }
+                        ],
+                        "password": "mofang123",
+                        "preSql": [],
+                        "session": [],
+                        "username": "root",
+                        "writeMode": "insert"
+                    }
+                }
+            }
+        ],
+        "setting": {
+            "speed": {
+                "channel": "5"
+            }
+        }
+    }
+}
