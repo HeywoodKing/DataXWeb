@@ -4,8 +4,6 @@
     <list default="true" id="9f402feb-7d7d-4c35-bde5-3800b1614496" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataxweb/backend/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataxweb/backend/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataxweb/backend/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataxweb/backend/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataxweb/dataxweb/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataxweb/dataxweb/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,14 +45,15 @@
     <session id="-1386523371">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -83,7 +82,7 @@
           <entry key="gitignore" value="1" />
           <entry key="json" value="9" />
           <entry key="md" value="443" />
-          <entry key="py" value="3798" />
+          <entry key="py" value="3815" />
           <entry key="vue" value="5" />
         </counts>
       </usages-collector>
@@ -92,7 +91,7 @@
           <entry key="JSON" value="9" />
           <entry key="Markdown" value="443" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="3798" />
+          <entry key="Python" value="3815" />
           <entry key="TOML" value="81" />
           <entry key="TypeScript JSX" value="5" />
         </counts>
@@ -110,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/dataxweb/dataxweb/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
-              <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+              <caret line="66" column="25" lean-forward="true" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
               <folding>
                 <element signature="e#309#318#0" expanded="true" />
               </folding>
@@ -121,17 +120,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dataxweb/backend/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="248" column="20" lean-forward="true" selection-start-line="248" selection-start-column="20" selection-end-line="248" selection-end-column="20" />
+            <state relative-caret-position="56">
+              <caret line="248" column="52" selection-start-line="248" selection-start-column="29" selection-end-line="248" selection-end-column="52" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#4406#5579#0" />
                 <element signature="e#5667#6076#0" />
                 <element signature="e#6155#6507#0" />
-                <element signature="e#12688#13253#0" />
-                <marker date="1575034424144" expanded="true" signature="12263:12264" ph="..." />
-                <marker date="1575034424144" expanded="true" signature="12806:12815" ph="..." />
-                <marker date="1575034424144" expanded="true" signature="14014:14020" ph="..." />
+                <element signature="e#7096#7117#0" />
+                <marker date="1575374228497" expanded="true" signature="12901:12902" ph="..." />
+                <marker date="1575374228497" expanded="true" signature="13444:13453" ph="..." />
+                <marker date="1575374228497" expanded="true" signature="14652:14658" ph="..." />
               </folding>
             </state>
           </provider>
@@ -140,7 +139,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataxweb/backend/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-457">
+            <state relative-caret-position="19">
               <caret line="122" column="23" selection-start-line="122" selection-start-column="6" selection-end-line="122" selection-end-column="23" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -200,7 +199,7 @@
       <path value="$PROJECT_DIR$/dataxweb/frontend/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1024" />
@@ -214,6 +213,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -226,16 +226,21 @@
               <item name="DataXWeb" type="462c0819:PsiDirectoryNode" />
               <item name="dataxweb" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DataXWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataXWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="dataxweb" type="462c0819:PsiDirectoryNode" />
+              <item name="dataxweb" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Work/moli_restapi" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
@@ -271,7 +276,7 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20171674" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20708154" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -286,7 +291,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5005365" side_tool="true" weight="0.46585903" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49946353" weight="0.41079295" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49946353" visible="true" weight="0.41124585" />
       <window_info anchor="bottom" id="Python Console" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -372,7 +377,7 @@
     <entry file="file://$PROJECT_DIR$/dataxweb/dataxweb/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+          <caret line="66" column="25" lean-forward="true" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
           <folding>
             <element signature="e#309#318#0" expanded="true" />
           </folding>
@@ -381,7 +386,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dataxweb/backend/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-457">
+        <state relative-caret-position="19">
           <caret line="122" column="23" selection-start-line="122" selection-start-column="6" selection-end-line="122" selection-end-column="23" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -395,17 +400,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dataxweb/backend/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="248" column="20" lean-forward="true" selection-start-line="248" selection-start-column="20" selection-end-line="248" selection-end-column="20" />
+        <state relative-caret-position="56">
+          <caret line="248" column="52" selection-start-line="248" selection-start-column="29" selection-end-line="248" selection-end-column="52" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#4406#5579#0" />
             <element signature="e#5667#6076#0" />
             <element signature="e#6155#6507#0" />
-            <element signature="e#12688#13253#0" />
-            <marker date="1575034424144" expanded="true" signature="12263:12264" ph="..." />
-            <marker date="1575034424144" expanded="true" signature="12806:12815" ph="..." />
-            <marker date="1575034424144" expanded="true" signature="14014:14020" ph="..." />
+            <element signature="e#7096#7117#0" />
+            <marker date="1575374228497" expanded="true" signature="12901:12902" ph="..." />
+            <marker date="1575374228497" expanded="true" signature="13444:13453" ph="..." />
+            <marker date="1575374228497" expanded="true" signature="14652:14658" ph="..." />
           </folding>
         </state>
       </provider>

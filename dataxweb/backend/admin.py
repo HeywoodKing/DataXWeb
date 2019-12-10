@@ -244,6 +244,14 @@ class DataXJobSchedulerAdmin(admin.ModelAdmin):
         pass
 
     view_job_json.short_description = '查看作业json'
+    # 显示的文本，与django admin一致
+    view_job_json.short_description = '部署作业'
+    # icon，参考element-ui icon与https://fontawesome.com
+    view_job_json.icon = 'fas fa-audio-description'
+    # 指定element-ui的按钮类型，参考https://element.eleme.cn/#/zh-CN/component/button
+    view_job_json.type = 'blue'
+    # 给按钮追加自定义的颜色
+    view_job_json.style = 'color:green;'
 
     def deploy_job(self, request, queryset):
         # 操作完成后的提示信息
@@ -260,7 +268,14 @@ class DataXJobSchedulerAdmin(admin.ModelAdmin):
         # 构造访问的url，使用GET方法，跳转到相应的页面
         return HttpResponseRedirect("/export/?ct=%s&ids=%s" % (ct.pk, ",".join(selected)))
 
+    # 显示的文本，与django admin一致
     deploy_job.short_description = '部署作业'
+    # icon，参考element-ui icon与https://fontawesome.com
+    deploy_job.icon = 'fas fa-audio-description'
+    # 指定element-ui的按钮类型，参考https://element.eleme.cn/#/zh-CN/component/button
+    deploy_job.type = 'danger'
+    # 给按钮追加自定义的颜色
+    deploy_job.style = 'color:black;'
 
     def view_job_task(self, request, queryset):
         pass
