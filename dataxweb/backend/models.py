@@ -8,6 +8,7 @@ import django.utils.timezone as timezone
 # from datetime import datetime
 # import pytz
 from django.utils.translation import ugettext_lazy as _
+from django.utils.html import format_html
 
 # Create your models here.
 
@@ -226,6 +227,25 @@ class DataXTask(BaseModel):
     #
     # long_profile.allow_tags = True
     # long_profile.short_description = _('')
+
+    # 用format_html()或者format_html_join()或者mark_safe()方法
+    def from_address(self):
+        # 关键是这句！！！！！请自己调整缩进。
+        return format_html(
+            '<span style="color: #{};">{}:{}</span>',
+            'green',
+            self.from_hostname,
+            self.from_port,
+        )
+
+    def to_address(self):
+        # 关键是这句！！！！！请自己调整缩进。
+        return format_html(
+            '<span style="color: #{};">{}:{}</span>',
+            'red',
+            self.to_hostname,
+            self.to_port,
+        )
 
 
 # 作业任务状态
