@@ -241,7 +241,7 @@ class LogEntryAdmin(admin.ModelAdmin):
 @admin.register(models.DataXJobScheduler, site=None)
 class DataXJobSchedulerAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'hostname', 'ip', 'port', 'deploy_state', 'state', 'start_time',
-                    'end_time', 'duration', 'sort', 'is_enable')
+                    'end_time', 'duration', 'sort', 'is_enable', 'go_to', )
     list_display_links = ('id', 'name',)
     list_editable = ('is_enable', 'hostname', 'ip', 'port',)
     list_filter = (IsEnableFilter,)

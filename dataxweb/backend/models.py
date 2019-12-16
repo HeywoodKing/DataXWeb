@@ -168,6 +168,12 @@ class DataXJobScheduler(BaseModel):
     def __str__(self):
         return self.name
 
+    def go_to(self):
+        from django.utils.safestring import mark_safe
+        return mark_safe("<a href='127.0.0.1:9000/admin/123'>查看</a>")
+
+    go_to.short_description = "操作"
+
 
 # 作业任务
 class DataXTask(BaseModel):
