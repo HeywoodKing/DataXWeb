@@ -260,6 +260,18 @@ class DataXJobSchedulerAdmin(admin.ModelAdmin):
     #         '/static/plugins/kindeditor-4.1.10/config.js',
     #     )
 
+    # def change_view(self, request, object_id, extra_context=None):
+    #     extra_context = {'custom': 'some_value'}
+    #     self.fields = ('id', 'name', 'hostname', 'ip', 'port',)
+    #     return super(DataXJobSchedulerAdmin, self).change_view(..., extra_context)
+
+    # def display_img(self, obj):
+    #     url = obj.img_url
+    #     return '<img ref="%s"/>' % url
+    #
+    # display_img.short_description = '用户照片'
+    # display_img.allow_tags = True
+
     actions = ['view_job_json', 'view_job_task', 'deploy_job', 'start_job', 'stop_job', 'view_job_log', ]
 
     def view_job_json(self, request, queryset):

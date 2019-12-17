@@ -187,7 +187,6 @@ ADMINS = (('John', 'john@example.com'), ('Mary', 'mary@example.com'))
 TEMPLATE_DEBUG = True
 
 
-
 # 首页配置
 # SIMPLEUI_HOME_PAGE = 'https://www.baidu.com'
 # 首页标题
@@ -198,7 +197,7 @@ TEMPLATE_DEBUG = True
 # SIMPLEUI_INDEX = 'http://www.dataxweb.cn/index'
 SIMPLEUI_INDEX = 'http://127.0.0.1:9000'
 # 自定义SIMPLEUI的Logo 修改LOGO
-SIMPLEUI_LOGO = STATIC_URL + 'images/login_logo.jpg'
+SIMPLEUI_LOGO = STATIC_URL + 'images/logo_64x64.png'
 
 # 服务器信息
 SIMPLEUI_HOME_INFO = False
