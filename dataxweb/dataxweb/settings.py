@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'simpleui',
+    # 'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'xframeoptions.middleware.Header',
 ]
 
 ROOT_URLCONF = 'dataxweb.urls'
@@ -164,6 +166,26 @@ SITE_AUTHOR = 'flack'
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads').replace('\\', '/')  # 设置静态文件路径为主目录下的uploads文件夹
 
+# X-Frame-Options有三个值:
+# DENY: 浏览器拒绝当前页面加载任何frame页面
+# SAMEORIGIN: frame页面的地址只能为同源域名下的页面
+# ALLOW-FROM: 允许frame加载的页面地址
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+# PASSWORD_HASHERS = (
+#     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+#     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+#     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+#     'django.contrib.auth.hashers.BCryptPasswordHasher',
+#     'django.contrib.auth.hashers.SHA1PasswordHasher',
+#     'django.contrib.auth.hashers.MD5PasswordHasher',
+#     'django.contrib.auth.hashers.CryptPasswordHasher',
+# )
+
+ADMINS = (('John', 'john@example.com'), ('Mary', 'mary@example.com'))
+
+TEMPLATE_DEBUG = True
+
 
 # 首页配置
 # SIMPLEUI_HOME_PAGE = 'https://www.baidu.com'
@@ -175,7 +197,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads').replace('\\', '/')  # 设置静�
 # SIMPLEUI_INDEX = 'http://www.dataxweb.cn/index'
 SIMPLEUI_INDEX = 'http://127.0.0.1:9000'
 # 自定义SIMPLEUI的Logo 修改LOGO
-SIMPLEUI_LOGO = STATIC_URL + 'images/login_logo.jpg'
+SIMPLEUI_LOGO = STATIC_URL + 'images/logo_64x64.png'
 
 # 服务器信息
 SIMPLEUI_HOME_INFO = False
@@ -340,7 +362,7 @@ SIMPLEUI_CONFIG = {
             'models': [{
                 'name': '用户',
                 'icon': 'fa fa-user',
-                'url': 'home/chfuserprofile/'
+                # 'url': 'home/chfuserprofile/'
             }]
         },
         {
